@@ -4,13 +4,13 @@ import axios from 'axios'
 
 
 const main = async () => {
-    const cheerioDocsWeb = await axios.get('https://:cheerio.js.org/docs/intro')
-    // const $ = cheerio.load('<h2 class="title">Hello world</h2>')
+    const cheerioDocsWebResponse = await axios.get('https://:cheerio.js.org/docs/intro')
+    const cheerioDocsWeb = cheerioDocsWebResponse.data
+    const $ = cheerio.load(cheerioDocsWeb)
 
-    // const text = $('h2.title').text()
+    const text = $('h1').text()
 
-    // console.log(text)
-    console.log(cheerioDocsWeb)
+    console.log(text)
 
 }
 main()
